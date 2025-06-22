@@ -1,0 +1,78 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+
+{%load static%}
+
+
+<link rel="stylesheet" href="{%static 'css/dogmenu.css'%}">
+
+<div class="center">
+<h1>Dog Finder</h1>
+</div>
+<div class="container">
+<div class="align-items-center justify-content-center"> 
+
+
+<form action="" method="POST">
+{% csrf_token %}
+
+<select class="form-select center" id="lifespan" name="lifespan">
+    <option selected>Lifespan</option>
+    <hr>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+<hr>
+<select class="form-select center" id="temperament" name="temperament">
+    <option selected>Temperament</option>
+    <hr>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+<hr>
+<select class="form-select center" id="train" name="train">
+    <option selected>Trainability</option>
+    <hr>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+<hr>
+<select class="form-select center" id="size" name="size">
+    <option selected>Size</option>
+    <hr>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+<hr>
+<select class="form-select center" id="hair" name="hair">
+    <option selected>Hair</option>
+    <hr>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+<hr>
+<select class="form-select center" id="color" name="color">
+    <option selected>Color</option>
+    <hr>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+<hr>
+<div class="center">
+<button class="btn mt-3 btn-dark" style="text-align: center;" type="submit">Search</button>
+</div>
+
+</form>
+
+</div>
+</div>
+  
+{%endblock%}
