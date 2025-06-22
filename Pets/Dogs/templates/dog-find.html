@@ -19,55 +19,55 @@
 {% csrf_token %}
 
 <select class="form-select center" id="lifespan" name="lifespan">
-    <option selected>Lifespan</option>
+    <option value="Lifespan" selected>Lifespan</option>
     <hr>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
+    {%for key,value in lifespan.items%}
+    <option value="{{value.id}}">{{value.lifespan}}</option>
+    {%endfor%}
 </select>
 <hr>
 <select class="form-select center" id="temperament" name="temperament">
-    <option selected>Temperament</option>
+    <option value="Temperament" selected>Temperament</option>
     <hr>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
+    {%for key,value in temperament.items%}
+    <option value="{{value.id}}">{{value.temperament}}</option>
+    {%endfor%}
 </select>
 <hr>
 <select class="form-select center" id="train" name="train">
-    <option selected>Trainability</option>
+    <option value="Trainability" selected>Trainability</option>
     <hr>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
+    {%for key,value in trainability.items %}
+    <option value="{{value.id}}">{{value.trainability}}</option>
+    {%endfor%}
 </select>
 <hr>
 <select class="form-select center" id="size" name="size">
-    <option selected>Size</option>
+    <option value="Size" selected>Size</option>
     <hr>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
+    {%for key,value in size.items%}
+    <option value="{{value.id}}">{{value.size}}</option>
+    {%endfor%}
 </select>
 <hr>
 <select class="form-select center" id="hair" name="hair">
-    <option selected>Hair</option>
+    <option value="Hair" selected>Hair</option>
     <hr>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
+    {%for key,value in hair.items%}
+    <option value="{{value.id}}">{{value.hair}}</option>
+    {%endfor%}
 </select>
 <hr>
 <select class="form-select center" id="color" name="color">
-    <option selected>Color</option>
+    <option value="Color" selected>Color</option>
     <hr>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
+    {%for key,value in color.items%}
+    <option value="{{value.id}}">{{value.color}}</option>
+    {%endfor%}
 </select>
 <hr>
 <div class="center">
-<button class="btn mt-3 btn-dark" style="text-align: center;" type="submit">Search</button>
+<button class="btn mt-3 btn-dark" onclick="search(event);" style="text-align: center;" type="submit">Search</button>
 </div>
 
 </form>
@@ -75,4 +75,81 @@
 </div>
 </div>
   
+
+<script>        
+    function search(event) {
+      let lifespan = document.getElementById("lifespan").value;
+      let temperament = document.getElementById("temperament").value;
+      let trainability = document.getElementById("train").value;
+      let size = document.getElementById("size").value;
+      let hair = document.getElementById("hair").value;
+      let color = document.getElementById("color").value;
+
+      if (lifespan.trim() === "Lifespan") {
+        Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Something went wrong! Lifespan not selected.',
+    footer: 'Please select a Lifespan value!'
+  });
+        event.preventDefault();
+      }
+
+      else if (temperament.trim() === "Temperament"){
+        Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Something went wrong! Temperament not selected.',
+    footer: 'Please select a Temperament value!'
+  });
+        event.preventDefault();       
+      }
+
+      else if (trainability.trim() === "Trainability"){
+        Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Something went wrong! Trainability not selected.',
+    footer: 'Please select a Trainability value!'
+  });
+        event.preventDefault();       
+      }
+
+      else if (size.trim() === "Size"){
+        Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Something went wrong! Size not selected.',
+    footer: 'Please select a Size value!'
+  });
+        event.preventDefault();       
+      }
+
+      else if (hair.trim() === "Hair"){
+        Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Something went wrong! Hair not selected.',
+    footer: 'Please select a Hair value!'
+  });
+        event.preventDefault();       
+      }
+
+      else if (color.trim() === "Color"){
+        Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Something went wrong! Color not selected.',
+    footer: 'Please select a Color value!'
+  });
+        event.preventDefault();       
+      }
+
+
+    };
+
+
+
+  </script>
+
 {%endblock%}
